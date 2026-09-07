@@ -1,53 +1,73 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Agricultural Product Marketplace</title>
 
-    <link rel="stylesheet" href="style.css">
+<title>AgroMarket | Agricultural Product Marketplace</title>
+
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
 
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                AgroMarket
-            </div>
 
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="#">Products</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-                <a href="#">Login</a>
-            </div>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            🌱 AgroMarket
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="products.html">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="login.html">Login</a>
+        </div>
+
+    </nav>
+</header>
 
 
-    <!-- Hero Section -->
+
+<main>
+
     <section class="hero">
 
         <div class="hero-content">
 
+            <p class="hero-label">
+                FARM FRESH • LOCAL • RELIABLE
+            </p>
+
             <h1>
                 Fresh Agricultural Products
-                <br>
                 Directly From Farmers
             </h1>
 
-            <p>
-                Buy fresh and quality agricultural products
-                directly from local farmers.
+            <p class="hero-description">
+                AgroMarket connects local farmers directly with buyers,
+                making it easier to discover fresh and quality agricultural
+                products at fair prices.
             </p>
 
             <div class="hero-buttons">
-                <button>Browse Products</button>
-                <button class="secondary-btn">Join Us</button>
+
+                <a href="products.html" class="btn">
+                    Browse Products
+                </a>
+
+                <a href="register.html" class="btn btn-secondary">
+                    Join AgroMarket
+                </a>
+
             </div>
 
         </div>
@@ -55,45 +75,347 @@
     </section>
 
 
-    <!-- Categories -->
+   
     <section class="categories">
 
-        <h2>Popular Categories</h2>
+        <div class="section-heading">
+            <h2>Popular Categories</h2>
+
+            <p>
+                Explore agricultural products from different categories.
+            </p>
+        </div>
+
 
         <div class="category-container">
 
-            <div class="category-card">
-                <h3>🌾 Grains</h3>
-                <p>Rice, wheat and other grains</p>
-            </div>
+            <a href="products.html?category=Grains"
+               class="category-card">
 
-            <div class="category-card">
-                <h3>🥔 Vegetables</h3>
-                <p>Fresh vegetables from farmers</p>
-            </div>
+                <span class="category-icon">🌾</span>
 
-            <div class="category-card">
-                <h3>🍎 Fruits</h3>
-                <p>Fresh and seasonal fruits</p>
-            </div>
+                <h3>Grains</h3>
 
-            <div class="category-card">
-                <h3>🌱 Other Products</h3>
-                <p>Various agricultural products</p>
-            </div>
+                <p>
+                    Rice, wheat and other locally produced grains.
+                </p>
+
+            </a>
+
+
+            <a href="products.html?category=Vegetables"
+               class="category-card">
+
+                <span class="category-icon">🥕</span>
+
+                <h3>Vegetables</h3>
+
+                <p>
+                    Fresh vegetables supplied directly by farmers.
+                </p>
+
+            </a>
+
+
+            <a href="products.html?category=Fruits"
+               class="category-card">
+
+                <span class="category-icon">🥭</span>
+
+                <h3>Fruits</h3>
+
+                <p>
+                    Fresh and seasonal fruits from local farms.
+                </p>
+
+            </a>
+
+
+            <a href="products.html?category=Other"
+               class="category-card">
+
+                <span class="category-icon">🌱</span>
+
+                <h3>Other Products</h3>
+
+                <p>
+                    Discover more locally produced agricultural goods.
+                </p>
+
+            </a>
 
         </div>
 
     </section>
 
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 AgroMarket. All Rights Reserved.</p>
-    </footer>
+    
+    <section class="featured-products">
+
+        <div class="section-heading">
+
+            <h2>Featured Products</h2>
+
+            <p>
+                Discover some popular products available on AgroMarket.
+            </p>
+
+        </div>
 
 
-    <script src="script.js"></script>
+        <div class="featured-product-container">
+
+            <article class="featured-product-card">
+
+                <div class="featured-product-image">
+                    🌾
+                </div>
+
+                <div class="featured-product-info">
+
+                    <span class="product-category">
+                        Grains
+                    </span>
+
+                    <h3>Premium Rice</h3>
+
+                    <p>
+                        Fresh rice supplied by local farmers.
+                    </p>
+
+                    <strong class="featured-price">
+                        ৳80 / kg
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="featured-product-card">
+
+                <div class="featured-product-image">
+                    🍅
+                </div>
+
+                <div class="featured-product-info">
+
+                    <span class="product-category">
+                        Vegetables
+                    </span>
+
+                    <h3>Fresh Tomatoes</h3>
+
+                    <p>
+                        Freshly harvested tomatoes from local farms.
+                    </p>
+
+                    <strong class="featured-price">
+                        ৳60 / kg
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="featured-product-card">
+
+                <div class="featured-product-image">
+                    🥭
+                </div>
+
+                <div class="featured-product-info">
+
+                    <span class="product-category">
+                        Fruits
+                    </span>
+
+                    <h3>Seasonal Mango</h3>
+
+                    <p>
+                        Sweet seasonal mangoes directly from farmers.
+                    </p>
+
+                    <strong class="featured-price">
+                        ৳120 / kg
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="center-button">
+
+            <a href="products.html" class="btn">
+                View All Products
+            </a>
+
+        </div>
+
+    </section>
+
+
+  
+    <section class="how-it-works">
+
+        <div class="section-heading">
+
+            <h2>How AgroMarket Works</h2>
+
+            <p>
+                A simple way to connect farmers and buyers.
+            </p>
+
+        </div>
+
+
+        <div class="steps-container">
+
+            <article class="step-card">
+
+                <div class="step-number">1</div>
+
+                <h3>Browse Products</h3>
+
+                <p>
+                    Explore fresh agricultural products offered by
+                    local farmers.
+                </p>
+
+            </article>
+
+
+            <article class="step-card">
+
+                <div class="step-number">2</div>
+
+                <h3>Choose Your Product</h3>
+
+                <p>
+                    Check product information, price and available
+                    quantity.
+                </p>
+
+            </article>
+
+
+            <article class="step-card">
+
+                <div class="step-number">3</div>
+
+                <h3>Place Your Order</h3>
+
+                <p>
+                    Select the required quantity and place your order
+                    through the marketplace.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="about-section" id="about">
+
+        <div class="about-content">
+
+            <p class="section-label">
+                ABOUT US
+            </p>
+
+            <h2>
+                Connecting Farmers With Buyers
+            </h2>
+
+            <p>
+                AgroMarket is an agricultural product marketplace
+                designed to provide a simple digital platform where
+                farmers can showcase their products and buyers can
+                easily discover fresh agricultural goods.
+            </p>
+
+            <p>
+                Our goal is to make agricultural buying and selling
+                easier, more accessible and more transparent.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="cta-section">
+
+        <h2>Ready to Explore AgroMarket?</h2>
+
+        <p>
+            Discover fresh agricultural products available from
+            local farmers.
+        </p>
+
+        <a href="products.html" class="btn">
+            Explore Marketplace
+        </a>
+
+    </section>
+
+</main>
+
+
+
+<footer id="contact">
+
+    <div class="footer-content">
+
+        <div>
+            <h3>🌱 AgroMarket</h3>
+
+            <p>
+                Connecting farmers and buyers through technology.
+            </p>
+        </div>
+
+
+        <div>
+            <h4>Quick Links</h4>
+
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="login.html">Login</a>
+        </div>
+
+
+        <div>
+            <h4>Marketplace</h4>
+
+            <p>Fresh Products</p>
+            <p>Local Farmers</p>
+            <p>Simple Ordering</p>
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 AgroMarket. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+```
 
 </body>
+
 </html>
