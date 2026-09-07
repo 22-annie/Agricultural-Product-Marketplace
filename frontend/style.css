@@ -707,3 +707,139 @@ display: none;
 }
 
 }
+
+/* =========================
+PRODUCT DETAILS PAGE
+========================= */
+
+.product-details-section {
+    min-height: 650px;
+    padding: 70px 8%;
+}
+
+.product-details-card {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    padding: 40px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.product-details-image {
+    min-height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-light);
+    border-radius: var(--radius);
+    font-size: 150px;
+}
+
+.product-details-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-details-info h1 {
+    margin-bottom: 15px;
+    font-size: 38px;
+}
+
+.details-description {
+    margin-bottom: 22px;
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+.details-info {
+    margin-bottom: 22px;
+    padding: 18px;
+    background-color: var(--background);
+    border-radius: 8px;
+}
+
+.details-info p {
+    margin-bottom: 8px;
+    color: var(--text-light);
+}
+
+.details-info p:last-child {
+    margin-bottom: 0;
+}
+
+.details-price {
+    margin-bottom: 25px;
+    color: var(--primary);
+    font-size: 28px;
+}
+
+.details-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.product-not-found {
+    max-width: 600px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.product-not-found h1 {
+    margin-bottom: 15px;
+}
+
+.product-not-found p {
+    margin-bottom: 25px;
+    color: var(--text-light);
+}
+
+
+/* Responsive Product Details */
+
+@media (max-width: 800px) {
+
+    .product-details-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .product-details-image {
+        min-height: 280px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .product-details-section {
+        padding: 40px 5%;
+    }
+
+    .product-details-card {
+        padding: 25px;
+    }
+
+    .product-details-info h1 {
+        font-size: 30px;
+    }
+
+    .product-details-image {
+        font-size: 110px;
+    }
+
+    .details-buttons {
+        flex-direction: column;
+    }
+
+    .details-buttons .btn {
+        text-align: center;
+    }
+
+}

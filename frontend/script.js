@@ -326,3 +326,174 @@ document.addEventListener(
 }
 
 );
+function displayProductDetails() {
+
+    const productDetails =
+        document.getElementById("productDetails");
+
+
+    // Stop if this is not the product details page
+
+    if (!productDetails) {
+        return;
+    }
+
+
+    
+
+    const urlParams =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const productId =
+        Number(
+            urlParams.get("id")
+        );
+
+
+   
+
+    const product =
+        products.find(
+            product => product.id === productId
+        );
+
+
+    
+
+    if (!product) {
+
+        productDetails.innerHTML = `
+
+            <div class="product-not-found">
+
+                <h1>
+                    Product Not Found
+                </h1>
+
+                <p>
+                    The product you are looking for does not exist.
+                </p>
+
+                <a
+                    href="products.html"
+                    class="btn"
+                >
+                    Back to Products
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    productDetails.innerHTML = `
+
+        <div class="product-details-card">
+
+
+            <div class="product-details-image">
+
+                ${product.image}
+
+            </div>
+
+
+            <div class="product-details-info">
+
+
+                <span class="product-category">
+
+                    ${product.category}
+
+                </span>
+
+
+                <h1>
+
+                    ${product.name}
+
+                </h1>
+
+
+                <p class="details-description">
+
+                    ${product.description}
+
+                </p>
+
+
+                <div class="details-info">
+
+                    <p>
+
+                        <strong>Farmer:</strong>
+                        ${product.farmer}
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>Category:</strong>
+                        ${product.category}
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>Available Unit:</strong>
+                        ${product.unit}
+
+                    </p>
+
+                </div>
+
+
+                <h2 class="details-price">
+
+                    ৳${product.price} / ${product.unit}
+
+                </h2>
+
+
+                <div class="details-buttons">
+
+                    <button
+                        class="btn"
+                        type="button"
+                    >
+                        Add to Cart
+                    </button>
+
+
+                    <a
+                        href="products.html"
+                        class="btn btn-secondary"
+                    >
+                        Back to Products
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    displayProductDetails
+);
