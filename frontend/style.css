@@ -146,6 +146,7 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 }
+
 /* Authentication Pages */
 
 .auth-container {
@@ -154,24 +155,31 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
+    background-color: #f7f9f5;
 }
 
 .auth-box {
     width: 100%;
     max-width: 420px;
     background-color: white;
-    padding: 40px;
-    border-radius: 10px;
+    padding: 45px 40px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
 }
 
 .auth-box h1 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 28px;
+    color: #1a1a1a;
 }
 
 .auth-box > p {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    color: #777;
+    font-size: 15px;
 }
 
 .auth-box form {
@@ -181,38 +189,69 @@ footer {
 
 .auth-box label {
     margin-bottom: 6px;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
 }
 
-.auth-box input {
-    padding: 12px;
-    margin-bottom: 18px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.auth-box input,
+.auth-box select {
+    padding: 13px 14px;
+    margin-bottom: 20px;
+    border: 1.5px solid #dde3d9;
+    border-radius: 8px;
     font-size: 15px;
+    background-color: #fafbf9;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-box input:focus,
+.auth-box select:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+    background-color: white;
+}
+
+.auth-box input::placeholder {
+    color: #aaa;
 }
 
 .auth-box button {
-    margin-top: 5px;
+    margin-top: 8px;
     width: 100%;
+    padding: 14px;
+    background-color: #4caf50;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.auth-box button:hover {
+    background-color: #429646;
+}
+
+.auth-box button:active {
+    transform: scale(0.98);
 }
 
 .auth-link {
-    margin-top: 20px;
+    margin-top: 22px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
 }
 
 .auth-link a {
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    color: #4caf50;
 }
 
-.auth-box select {
-    padding: 12px;
-    margin-bottom: 18px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 15px;
-    background-color: white;
+.auth-link a:hover {
+    text-decoration: underline;
 }
 
 /* Products Page */
