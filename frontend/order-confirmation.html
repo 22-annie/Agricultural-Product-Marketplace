@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Product Details | AgroMarket</title>
+    <title>Order Confirmation | AgroMarket</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-   
 
     <header>
 
@@ -28,7 +26,7 @@
                     Home
                 </a>
 
-                <a href="products.html" class="active">
+                <a href="products.html">
                     Products
                 </a>
 
@@ -55,16 +53,15 @@
     </header>
 
 
-    <main class="product-details-section">
+    <main class="confirmation-section">
 
-        <div id="productDetails">
+        <div id="orderConfirmation" class="confirmation-container">
 
-            <!-- Product details will be added by JavaScript -->
+            <!-- Order confirmation will be displayed here -->
 
         </div>
 
     </main>
-
 
 
     <footer>
@@ -81,6 +78,10 @@
 
 
     <script src="script.js"></script>
+
+    <script>
+        displayOrderConfirmation();
+    </script>
 
 </body>
 

@@ -469,6 +469,7 @@ function displayProductDetails() {
                     <button
                         class="btn"
                         type="button"
+                        onclick="addToCart(${product.id})"
                     >
                         Add to Cart
                     </button>
@@ -496,4 +497,928 @@ function displayProductDetails() {
 document.addEventListener(
     "DOMContentLoaded",
     displayProductDetails
+);
+
+function addToCart(productId) {
+
+    const product = products.find(
+        product => product.id === productId
+    );
+
+    if (!product) {
+        return;
+    }
+
+    let cart = JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+
+    // Check whether product is already in cart
+
+    const existingProduct = cart.find(
+        item => item.id === productId
+    );
+
+
+    if (existingProduct) {
+
+        existingProduct.quantity += 1;
+
+    } else {
+
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            unit: product.unit,
+            image: product.image,
+            quantity: 1
+        });
+
+    }
+
+
+    // Save cart
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+
+    alert(`${product.name} added to cart!`);
+
+}
+function displayCart() {
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const cartSummary =
+        document.getElementById("cartSummary");
+
+
+    // Stop if this is not the cart page
+
+    if (!cartItems || !cartSummary) {
+        return;
+    }
+
+
+    let cart = JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+
+    // Empty cart
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+            <div class="empty-cart">
+
+                <h2>Your cart is empty 🛒</h2>
+
+                <p>
+                    You haven't added any products yet.
+                </p>
+
+                <a
+                    href="products.html"
+                    class="btn"
+                >
+                    Browse Products
+                </a>
+
+            </div>
+
+        `;
+
+        cartSummary.innerHTML = "";
+
+        return;
+    }
+
+
+    // Display cart products
+
+    cartItems.innerHTML = "";
+
+
+    let total = 0;
+
+
+    cart.forEach(item => {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+
+        total += itemTotal;
+
+
+        const cartItem =
+            document.createElement("div");
+
+
+        cartItem.classList.add("cart-item");
+
+
+        cartItem.innerHTML = `
+
+            <div class="cart-item-image">
+
+                ${item.image}
+
+            </div>
+
+
+            <div class="cart-item-info">
+
+                <h2>
+                    ${item.name}
+                </h2>
+
+                <p>
+                    ৳${item.price} / ${item.unit}
+                </p>
+
+            </div>
+
+
+            <div class="cart-quantity">
+
+                <button
+                    onclick="changeQuantity(${item.id}, -1)"
+                >
+                    −
+                </button>
+
+                <span>
+                    ${item.quantity}
+                </span>
+
+                <button
+                    onclick="changeQuantity(${item.id}, 1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <div class="cart-item-total">
+
+                <strong>
+                    ৳${itemTotal}
+                </strong>
+
+            </div>
+
+
+            <button
+                class="remove-cart-item"
+                onclick="removeFromCart(${item.id})"
+            >
+                Remove
+            </button>
+
+        `;
+
+
+        cartItems.appendChild(cartItem);
+
+    });
+
+
+    // Display summary
+
+    cartSummary.innerHTML = `
+
+        <div class="cart-summary">
+
+            <h2>
+                Cart Summary
+            </h2>
+
+            <div class="cart-total">
+
+                <span>
+                    Total:
+                </span>
+
+                <strong>
+                    ৳${total}
+                </strong>
+
+            </div>
+
+
+            <div class="cart-buttons">
+
+                <a
+                    href="products.html"
+                    class="btn btn-secondary"
+                >
+                    Continue Shopping
+                </a>
+
+                <button
+                    class="btn"
+                    onclick="proceedToCheckout()"
+                >
+                    Proceed to Checkout
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+function changeQuantity(productId, change) {
+
+    let cart = JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+
+    const product =
+        cart.find(item => item.id === productId);
+
+
+    if (!product) {
+        return;
+    }
+
+
+    product.quantity += change;
+
+
+    // Remove product if quantity reaches zero
+
+    if (product.quantity <= 0) {
+
+        cart = cart.filter(
+            item => item.id !== productId
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+
+    displayCart();
+
+}
+
+function removeFromCart(productId) {
+
+    let cart = JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+
+    cart = cart.filter(
+        item => item.id !== productId
+    );
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+
+    displayCart();
+
+}
+function proceedToCheckout() {
+
+    window.location.href =
+        "checkout.html";
+
+}
+document.addEventListener(
+    "DOMContentLoaded",
+    displayCart
+);
+function displayCheckout() {
+
+    const checkoutItems =
+        document.getElementById("checkoutItems");
+
+    const checkoutTotal =
+        document.getElementById("checkoutTotal");
+
+
+    // Stop if this is not the checkout page
+
+    if (!checkoutItems || !checkoutTotal) {
+        return;
+    }
+
+
+    let cart = JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
+
+
+    // If cart is empty
+
+    if (cart.length === 0) {
+
+        checkoutItems.innerHTML = `
+
+            <div class="empty-cart">
+
+                <h2>Your cart is empty 🛒</h2>
+
+                <p>
+                    Add some products before checking out.
+                </p>
+
+                <a
+                    href="products.html"
+                    class="btn"
+                >
+                    Browse Products
+                </a>
+
+            </div>
+
+        `;
+
+        checkoutTotal.innerHTML = "";
+
+        return;
+    }
+
+
+    checkoutItems.innerHTML = "";
+
+    let total = 0;
+
+
+    cart.forEach(item => {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+
+        total += itemTotal;
+
+
+        const itemElement =
+            document.createElement("div");
+
+
+        itemElement.classList.add(
+            "checkout-item"
+        );
+
+
+        itemElement.innerHTML = `
+
+            <div class="checkout-item-image">
+                ${item.image}
+            </div>
+
+            <div class="checkout-item-info">
+
+                <h3>
+                    ${item.name}
+                </h3>
+
+                <p>
+                    Quantity: ${item.quantity}
+                </p>
+
+                <p>
+                    ৳${item.price} / ${item.unit}
+                </p>
+
+            </div>
+
+            <strong>
+                ৳${itemTotal}
+            </strong>
+
+        `;
+
+
+        checkoutItems.appendChild(itemElement);
+
+    });
+
+
+    checkoutTotal.innerHTML = `
+
+        <div class="checkout-total">
+
+            <span>
+                Total:
+            </span>
+
+            <strong>
+                ৳${total}
+            </strong>
+
+        </div>
+
+    `;
+
+}
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const checkoutForm =
+            document.getElementById("checkoutForm");
+
+
+        if (!checkoutForm) {
+            return;
+        }
+
+
+        checkoutForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById(
+                        "customerName"
+                    ).value.trim();
+
+
+                const phone =
+                    document.getElementById(
+                        "phone"
+                    ).value.trim();
+
+
+                const address =
+                    document.getElementById(
+                        "address"
+                    ).value.trim();
+
+
+                const city =
+                    document.getElementById(
+                        "city"
+                    ).value.trim();
+
+
+                const payment =
+                    document.querySelector(
+                        'input[name="payment"]:checked'
+                    ).value;
+
+
+                const cart =
+                    JSON.parse(
+                        localStorage.getItem("cart")
+                    ) || [];
+
+
+                if (cart.length === 0) {
+
+                    alert(
+                        "Your cart is empty."
+                    );
+
+                    return;
+                }
+
+
+                const total =
+                    cart.reduce(
+                        (sum, item) =>
+                            sum +
+                            item.price * item.quantity,
+                        0
+                    );
+
+
+                // Save order temporarily
+
+                const order = {
+
+                    orderId:
+                        "ORD-" +
+                        Date.now(),
+
+                    customerName: name,
+
+                    phone: phone,
+
+                    address: address,
+
+                    city: city,
+
+                    paymentMethod: payment,
+
+                    items: cart,
+
+                    total: total,
+
+                    orderDate:
+                        new Date().toLocaleString()
+
+                };
+
+
+                localStorage.setItem(
+                    "latestOrder",
+                    JSON.stringify(order)
+                );
+
+
+                // Clear cart after successful order
+
+                localStorage.removeItem("cart");
+
+
+                // Go to confirmation page
+
+                window.location.href =
+                    "order-confirmation.html";
+
+            }
+        );
+
+    }
+);
+function displayOrderConfirmation() {
+
+    const confirmation =
+        document.getElementById(
+            "orderConfirmation"
+        );
+
+
+    if (!confirmation) {
+        return;
+    }
+
+
+    const order =
+        JSON.parse(
+            localStorage.getItem("latestOrder")
+        );
+
+
+    if (!order) {
+
+        confirmation.innerHTML = `
+
+            <h1>
+                No Order Found
+            </h1>
+
+            <p>
+                We couldn't find a recent order.
+            </p>
+
+            <a
+                href="products.html"
+                class="btn"
+            >
+                Browse Products
+            </a>
+
+        `;
+
+        return;
+    }
+
+
+    confirmation.innerHTML = `
+
+
+        <h1>
+            Order Placed Successfully! 
+        </h1>
+
+        <p>
+            Thank you, ${order.customerName}!
+        </p>
+
+        <p>
+            Your order has been received.
+        </p>
+
+
+        <div class="order-details">
+
+            <p>
+                <strong>Order ID:</strong>
+                ${order.orderId}
+            </p>
+
+            <p>
+                <strong>Total:</strong>
+                ৳${order.total}
+            </p>
+
+            <p>
+                <strong>Payment:</strong>
+                ${order.paymentMethod}
+            </p>
+
+            <p>
+                <strong>Delivery Address:</strong>
+                ${order.address}, ${order.city}
+            </p>
+
+        </div>
+
+
+        <a
+            href="products.html"
+            class="btn"
+        >
+            Continue Shopping
+        </a>
+
+    `;
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    displayOrderConfirmation
+);
+
+/* =========================
+   DASHBOARD
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const isDashboardPage =
+            window.location.pathname
+                .includes("dashboard.html");
+
+
+        if (!isDashboardPage) {
+            return;
+        }
+
+
+        /* Get Logged In User */
+
+        const storedUser =
+            localStorage.getItem("user");
+
+
+        /* Redirect if user is not logged in */
+
+        if (!storedUser) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        const user =
+            JSON.parse(storedUser);
+
+
+        /* User Information */
+
+        const userName =
+            user.name || "User";
+
+
+        const userEmail =
+            user.email || "Not available";
+
+
+        const userRole =
+            user.role || "Customer";
+
+
+        /* Welcome Message */
+
+        const welcomeMessage =
+            document.getElementById(
+                "welcomeMessage"
+            );
+
+
+        if (welcomeMessage) {
+
+            welcomeMessage.textContent =
+                `Welcome, ${userName}!`;
+
+        }
+
+
+        /* User Role */
+
+        const userRoleElement =
+            document.getElementById(
+                "userRole"
+            );
+
+
+        if (userRoleElement) {
+
+            userRoleElement.textContent =
+                `Logged in as ${userRole}`;
+
+        }
+
+
+        /* Account Information */
+
+        const accountName =
+            document.getElementById(
+                "accountName"
+            );
+
+
+        if (accountName) {
+
+            accountName.textContent =
+                userName;
+
+        }
+
+
+        const accountEmail =
+            document.getElementById(
+                "accountEmail"
+            );
+
+
+        if (accountEmail) {
+
+            accountEmail.textContent =
+                userEmail;
+
+        }
+
+
+        const accountRole =
+            document.getElementById(
+                "accountRole"
+            );
+
+
+        if (accountRole) {
+
+            accountRole.textContent =
+                userRole;
+
+        }
+
+
+        /* Role Statistics */
+
+        const roleDisplay =
+            document.getElementById(
+                "roleDisplay"
+            );
+
+
+        if (roleDisplay) {
+
+            roleDisplay.textContent =
+                userRole;
+
+        }
+
+
+        /* User Avatar Initial */
+
+        const userInitial =
+            document.getElementById(
+                "userInitial"
+            );
+
+
+        if (
+            userInitial &&
+            userName
+        ) {
+
+            userInitial.textContent =
+                userName
+                    .charAt(0)
+                    .toUpperCase();
+
+        }
+
+
+        /* Cart Count */
+
+        const cartCount =
+            document.getElementById(
+                "cartCount"
+            );
+
+
+        const storedCart =
+            localStorage.getItem("cart");
+
+
+        let cart =
+            [];
+
+
+        if (storedCart) {
+
+            try {
+
+                cart =
+                    JSON.parse(storedCart);
+
+            }
+
+            catch (error) {
+
+                cart =
+                    [];
+
+            }
+
+        }
+
+
+        if (cartCount) {
+
+            const totalItems =
+                cart.reduce(
+                    (
+                        total,
+                        item
+                    ) => {
+
+                        return (
+                            total +
+                            item.quantity
+                        );
+
+                    },
+                    0
+                );
+
+
+            cartCount.textContent =
+                totalItems;
+
+        }
+
+
+        /* Logout */
+
+        const logoutBtn =
+            document.getElementById(
+                "logoutBtn"
+            );
+
+
+        if (logoutBtn) {
+
+            logoutBtn.addEventListener(
+                "click",
+                event => {
+
+                    event.preventDefault();
+
+
+                    localStorage.removeItem(
+                        "user"
+                    );
+
+
+                    window.location.href =
+                        "index.html";
+
+                }
+            );
+
+        }
+
+
+    }
 );
