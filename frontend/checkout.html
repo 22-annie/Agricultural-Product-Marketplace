@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | AgroMarket</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+               🌱 AgroMarket
+            </a>
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="products.html">
+                    Products
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a href="cart.html">
+                    Cart
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main class="checkout-section">
+
+        <div class="checkout-container">
+
+            <h1>Checkout</h1>
+
+
+            <div class="checkout-content">
+
+                <!-- Delivery Information -->
+
+                <div class="checkout-form">
+
+                    <h2>Delivery Information</h2>
+
+                    <form id="checkoutForm">
+
+                        <div class="form-group">
+
+                            <label for="customerName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="customerName"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="Enter your phone number"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="address">
+                                Delivery Address
+                            </label>
+
+                            <textarea
+                                id="address"
+                                rows="4"
+                                placeholder="Enter your delivery address"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="city">
+                                City
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                placeholder="Enter your city"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Payment Method
+                            </label>
+
+                            <div class="payment-options">
+
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="payment"
+                                        value="Cash on Delivery"
+                                        checked
+                                    >
+                                    Cash on Delivery
+                                </label>
+
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="payment"
+                                        value="Online Payment"
+                                    >
+                                    Online Payment
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn"
+                        >
+                            Place Order
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Order Summary -->
+
+                <div class="checkout-summary">
+
+                    <h2>Order Summary</h2>
+
+                    <div id="checkoutItems">
+
+                        <!-- Cart items will be displayed here -->
+
+                    </div>
+
+                    <div id="checkoutTotal">
+
+                        <!-- Total will be displayed here -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 AgroMarket. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+<script>
+    displayCheckout();
+</script>
+
+</body>
+
+</html>

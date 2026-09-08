@@ -1,97 +1,721 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dashboard - AgroMarket</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>Dashboard | AgroMarket</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
+
     <!-- Navigation -->
+
     <header>
+
         <nav class="navbar">
-            <div class="logo">
-                AgroMarket
-            </div>
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                🌱 AgroMarket
+
+            </a>
+
 
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="products.html">Products</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="#">Logout</a>
+
+                <a href="index.html">
+
+                    Home
+
+                </a>
+
+
+                <a href="products.html">
+
+                    Products
+
+                </a>
+
+
+                <a href="about.html">
+
+                    About
+
+                </a>
+
+
+                <a href="contact.html">
+
+                    Contact
+
+                </a>
+
+
+                <a href="cart.html">
+
+                    Cart
+
+                </a>
+
+
+                <a
+                    href="dashboard.html"
+                    class="active"
+                >
+
+                    Dashboard
+
+                </a>
+
+
+                <a
+                    href="#"
+                    id="logoutBtn"
+                    class="logout-link"
+                >
+
+                    Logout
+
+                </a>
+
             </div>
+
         </nav>
+
     </header>
 
 
+
     <!-- Dashboard -->
-    <main class="dashboard">
 
-        <div class="dashboard-header">
-            <h1>Welcome to Your Dashboard</h1>
-            <p>Manage your AgroMarket activities from here.</p>
-        </div>
+    <main class="dashboard-section">
 
 
-        <!-- Dashboard Cards -->
-        <div class="dashboard-cards">
+        <!-- Dashboard Header -->
 
-            <div class="dashboard-card">
-                <div class="dashboard-icon">🛒</div>
-                <h2>My Orders</h2>
-                <p>View and track your orders.</p>
-                <button>View Orders</button>
-            </div>
+        <section class="dashboard-hero">
 
+            <div class="dashboard-welcome">
 
-            <div class="dashboard-card">
-                <div class="dashboard-icon">🌾</div>
-                <h2>My Products</h2>
-                <p>Manage the agricultural products you sell.</p>
-                <button>Manage Products</button>
-            </div>
+                <div>
+
+                    <p class="dashboard-label">
+
+                        AGROMARKET DASHBOARD
+
+                    </p>
 
 
-            <div class="dashboard-card">
-                <div class="dashboard-icon">➕</div>
-                <h2>Add Product</h2>
-                <p>Add a new agricultural product.</p>
-                <button>Add Product</button>
-            </div>
+                    <h1 id="welcomeMessage">
+
+                        Welcome Back!
+
+                    </h1>
 
 
-            <div class="dashboard-card">
-                <div class="dashboard-icon">👤</div>
-                <h2>My Profile</h2>
-                <p>View and update your account information.</p>
-                <button>View Profile</button>
-            </div>
+                    <p
+                        id="userRole"
+                        class="dashboard-subtitle"
+                    >
 
-        </div>
+                        Manage your AgroMarket account.
+
+                    </p>
+
+                </div>
 
 
-        <!-- Recent Activity -->
-        <section class="recent-activity">
+                <div class="user-avatar">
 
-            <h2>Recent Activity</h2>
+                    <span id="userInitial">
 
-            <div class="activity-box">
-                <p>No recent activity.</p>
+                        U
+
+                    </span>
+
+                </div>
+
             </div>
 
         </section>
 
+
+
+        <!-- Dashboard Content -->
+
+        <section class="dashboard-content">
+
+
+            <!-- Statistics -->
+
+            <div class="dashboard-stats">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+
+                        🛒
+
+                    </div>
+
+
+                    <div>
+
+                        <p>
+
+                            Cart Items
+
+                        </p>
+
+
+                        <h2 id="cartCount">
+
+                            0
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+
+                        📦
+
+                    </div>
+
+
+                    <div>
+
+                        <p>
+
+                            Orders
+
+                        </p>
+
+
+                        <h2>
+
+                            0
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+
+                        🌾
+
+                    </div>
+
+
+                    <div>
+
+                        <p>
+
+                            Products
+
+                        </p>
+
+
+                        <h2>
+
+                            8
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+
+                        ⭐
+
+                    </div>
+
+
+                    <div>
+
+                        <p>
+
+                            Account Role
+
+                        </p>
+
+
+                        <h2
+                            id="roleDisplay"
+                            class="role-stat"
+                        >
+
+                            User
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- Dashboard Grid -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- Quick Actions -->
+
+                <section class="dashboard-panel quick-actions">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <p class="section-label">
+
+                                QUICK ACCESS
+
+                            </p>
+
+
+                            <h2>
+
+                                Quick Actions
+
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="action-grid">
+
+
+                        <a
+                            href="products.html"
+                            class="dashboard-action"
+                        >
+
+                            <span class="action-icon">
+
+                                🛍️
+
+                            </span>
+
+
+                            <div>
+
+                                <h3>
+
+                                    Browse Products
+
+                                </h3>
+
+
+                                <p>
+
+                                    Explore fresh products
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <a
+                            href="cart.html"
+                            class="dashboard-action"
+                        >
+
+                            <span class="action-icon">
+
+                                🛒
+
+                            </span>
+
+
+                            <div>
+
+                                <h3>
+
+                                    View Cart
+
+                                </h3>
+
+
+                                <p>
+
+                                    Check your selected products
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <a
+                            href="index.html"
+                            class="dashboard-action"
+                        >
+
+                            <span class="action-icon">
+
+                                🌱
+
+                            </span>
+
+
+                            <div>
+
+                                <h3>
+
+                                    Home
+
+                                </h3>
+
+
+                                <p>
+
+                                    Return to AgroMarket
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <a
+                            href="contact.html"
+                            class="dashboard-action"
+                        >
+
+                            <span class="action-icon">
+
+                                💬
+
+                            </span>
+
+
+                            <div>
+
+                                <h3>
+
+                                    Contact Us
+
+                                </h3>
+
+
+                                <p>
+
+                                    Get help and support
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- Account Information -->
+
+                <section class="dashboard-panel account-panel">
+
+
+                    <p class="section-label">
+
+                        MY ACCOUNT
+
+                    </p>
+
+
+                    <h2>
+
+                        Account Information
+
+                    </h2>
+
+
+
+                    <div class="account-info">
+
+
+                        <div class="account-row">
+
+                            <span class="account-icon">
+
+                                👤
+
+                            </span>
+
+
+                            <div>
+
+                                <p>
+
+                                    Full Name
+
+                                </p>
+
+
+                                <h3 id="accountName">
+
+                                    User
+
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="account-row">
+
+                            <span class="account-icon">
+
+                                ✉️
+
+                            </span>
+
+
+                            <div>
+
+                                <p>
+
+                                    Email Address
+
+                                </p>
+
+
+                                <h3 id="accountEmail">
+
+                                    user@email.com
+
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="account-row">
+
+                            <span class="account-icon">
+
+                                🏷️
+
+                            </span>
+
+
+                            <div>
+
+                                <p>
+
+                                    Account Type
+
+                                </p>
+
+
+                                <h3 id="accountRole">
+
+                                    User
+
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+
+
+            <!-- Recent Activity -->
+
+            <section class="dashboard-panel activity-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <p class="section-label">
+
+                            ACTIVITY
+
+                        </p>
+
+
+                        <h2>
+
+                            Recent Activity
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    id="recentActivity"
+                    class="activity-list"
+                >
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon">
+
+                            👋
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+
+                                Welcome to AgroMarket!
+
+                            </h3>
+
+
+                            <p>
+
+                                Start exploring fresh agricultural products.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon">
+
+                            🛍️
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+
+                                Browse our marketplace
+
+                            </h3>
+
+
+                            <p>
+
+                                Discover products directly from farmers.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+
     </main>
 
 
+
     <!-- Footer -->
+
     <footer>
-        <p>© 2026 AgroMarket. All Rights Reserved.</p>
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 AgroMarket. All Rights Reserved.
+
+            </p>
+
+        </div>
+
     </footer>
 
+
+
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>

@@ -1,217 +1,233 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Products - AgroMarket</title>
 
-    <link rel="stylesheet" href="style.css">
+<title>Products | AgroMarket</title>
+
+<link rel="stylesheet" href="style.css">
+
+
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                AgroMarket
-            </div>
+<header>
 
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="products.html">Products</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-                <a href="login.html">Login</a>
-            </div>
-        </nav>
-    </header>
+    <nav class="navbar">
 
+        <a href="index.html" class="logo">
+            🌱 AgroMarket
+        </a>
 
-    <!-- Products Section -->
-    <main class="products-section">
+        <div class="nav-links">
 
-        <div class="products-header">
-            <h1>Available Products</h1>
+            <a href="index.html">Home</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="cart.html">Cart</a>
+            <a href="login.html">Login</a>
 
-            <p>
-                Fresh agricultural products directly from local farmers.
-            </p>
         </div>
 
+    </nav>
 
-        <!-- Search and Filter -->
+</header>
+
+
+<main>
+
+    
+    <section class="products-hero">
+
+        <p class="section-label">
+            MARKETPLACE
+        </p>
+
+        <h1>
+            Fresh Agricultural Products
+        </h1>
+
+        <p>
+            Explore fresh products directly supplied by local farmers.
+        </p>
+
+    </section>
+
+
+   
+
+    <section class="product-controls-section">
+
         <div class="product-controls">
 
-            <input
-                type="text"
-                id="search"
-                placeholder="Search products..."
-            >
+            <div class="search-box">
 
-            <select id="category">
-                <option value="">All Categories</option>
-                <option value="Grains">Grains</option>
-                <option value="Vegetables">Vegetables</option>
-                <option value="Fruits">Fruits</option>
-                <option value="Other">Other</option>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search products..."
+                >
+
+            </div>
+
+
+            <select id="categoryFilter">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="Grains">
+                    Grains
+                </option>
+
+                <option value="Vegetables">
+                    Vegetables
+                </option>
+
+                <option value="Fruits">
+                    Fruits
+                </option>
+
+                <option value="Other">
+                    Other Products
+                </option>
+
             </select>
 
         </div>
 
-
-        <!-- Product Cards -->
-        <div class="product-container">
-
-            <div class="product-card">
-
-                <div class="product-image">
-                    🌾
-                </div>
-
-                <div class="product-info">
-
-                    <h2>Rice</h2>
-
-                    <p class="category">
-                        Grains
-                    </p>
-
-                    <p>
-                        Fresh quality rice from local farmers.
-                    </p>
-
-                    <p class="price">
-                        ৳80 / kg
-                    </p>
-
-                    <p>
-                        Available: 100 kg
-                    </p>
-
-                    <button>
-                        View Details
-                    </button>
-
-                </div>
-
-            </div>
+    </section>
 
 
-            <div class="product-card">
 
-                <div class="product-image">
-                    🥔
-                </div>
+    <section class="products-section">
 
-                <div class="product-info">
+        <div class="products-summary">
 
-                    <h2>Potato</h2>
-
-                    <p class="category">
-                        Vegetables
-                    </p>
-
-                    <p>
-                        Fresh potatoes directly from farmers.
-                    </p>
-
-                    <p class="price">
-                        ৳40 / kg
-                    </p>
-
-                    <p>
-                        Available: 200 kg
-                    </p>
-
-                    <button>
-                        View Details
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="product-card">
-
-                <div class="product-image">
-                    🍅
-                </div>
-
-                <div class="product-info">
-
-                    <h2>Tomato</h2>
-
-                    <p class="category">
-                        Vegetables
-                    </p>
-
-                    <p>
-                        Fresh and healthy farm-grown tomatoes.
-                    </p>
-
-                    <p class="price">
-                        ৳60 / kg
-                    </p>
-
-                    <p>
-                        Available: 150 kg
-                    </p>
-
-                    <button>
-                        View Details
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="product-card">
-
-                <div class="product-image">
-                    🥭
-                </div>
-
-                <div class="product-info">
-
-                    <h2>Mango</h2>
-
-                    <p class="category">
-                        Fruits
-                    </p>
-
-                    <p>
-                        Fresh seasonal mangoes from local farmers.
-                    </p>
-
-                    <p class="price">
-                        ৳120 / kg
-                    </p>
-
-                    <p>
-                        Available: 80 kg
-                    </p>
-
-                    <button>
-                        View Details
-                    </button>
-
-                </div>
-
-            </div>
+            <p id="productCount">
+                Showing products
+            </p>
 
         </div>
 
-    </main>
+
+        <div
+            class="product-container"
+            id="productContainer"
+        >
+
+          
+
+        </div>
 
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 AgroMarket. All Rights Reserved.</p>
-    </footer>
+        <div
+            id="noProducts"
+            class="no-products hidden"
+        >
+
+            <div class="no-products-icon">
+                🌱
+            </div>
+
+            <h2>
+                No products found
+            </h2>
+
+            <p>
+                Try searching for something else.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+                🌱 AgroMarket
+            </h3>
+
+            <p>
+                Connecting farmers and buyers through technology.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Marketplace
+            </h4>
+
+            <p>
+                Fresh Products
+            </p>
+
+            <p>
+                Local Farmers
+            </p>
+
+            <p>
+                Simple Ordering
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 AgroMarket. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
