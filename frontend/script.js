@@ -1,150 +1,150 @@
 const products = [
 
-{
-    id: 1,
-    name: "Premium Rice",
-    category: "Grains",
-    price: 80,
-    unit: "kg",
-    farmer: "Rahim Uddin",
-    description: "High quality locally produced rice.",
-    image: "🌾"
-},
+    {
+        id: 1,
+        name: "Premium Rice",
+        category: "Grains",
+        price: 80,
+        unit: "kg",
+        farmer: "Rahim Uddin",
+        description: "High quality locally produced rice.",
+        image: "🌾"
+    },
 
-{
-    id: 2,
-    name: "Fresh Wheat",
-    category: "Grains",
-    price: 65,
-    unit: "kg",
-    farmer: "Karim Hasan",
-    description: "Fresh wheat collected from local farms.",
-    image: "🌾"
-},
+    {
+        id: 2,
+        name: "Fresh Wheat",
+        category: "Grains",
+        price: 65,
+        unit: "kg",
+        farmer: "Karim Hasan",
+        description: "Fresh wheat collected from local farms.",
+        image: "🌾"
+    },
 
-{
-    id: 3,
-    name: "Fresh Tomatoes",
-    category: "Vegetables",
-    price: 60,
-    unit: "kg",
-    farmer: "Abdul Karim",
-    description: "Freshly harvested tomatoes.",
-    image: "🍅"
-},
+    {
+        id: 3,
+        name: "Fresh Tomatoes",
+        category: "Vegetables",
+        price: 60,
+        unit: "kg",
+        farmer: "Abdul Karim",
+        description: "Freshly harvested tomatoes.",
+        image: "🍅"
+    },
 
-{
-    id: 4,
-    name: "Organic Potatoes",
-    category: "Vegetables",
-    price: 45,
-    unit: "kg",
-    farmer: "Sadia Akter",
-    description: "Fresh organic potatoes.",
-    image: "🥔"
-},
+    {
+        id: 4,
+        name: "Organic Potatoes",
+        category: "Vegetables",
+        price: 45,
+        unit: "kg",
+        farmer: "Sadia Akter",
+        description: "Fresh organic potatoes.",
+        image: "🥔"
+    },
 
-{
-    id: 5,
-    name: "Seasonal Mango",
-    category: "Fruits",
-    price: 120,
-    unit: "kg",
-    farmer: "Mizanur Rahman",
-    description: "Sweet and fresh seasonal mangoes.",
-    image: "🥭"
-},
+    {
+        id: 5,
+        name: "Seasonal Mango",
+        category: "Fruits",
+        price: 120,
+        unit: "kg",
+        farmer: "Mizanur Rahman",
+        description: "Sweet and fresh seasonal mangoes.",
+        image: "🥭"
+    },
 
-{
-    id: 6,
-    name: "Fresh Banana",
-    category: "Fruits",
-    price: 70,
-    unit: "dozen",
-    farmer: "Hasan Ali",
-    description: "Naturally ripened fresh bananas.",
-    image: "🍌"
-},
+    {
+        id: 6,
+        name: "Fresh Banana",
+        category: "Fruits",
+        price: 70,
+        unit: "dozen",
+        farmer: "Hasan Ali",
+        description: "Naturally ripened fresh bananas.",
+        image: "🍌"
+    },
 
-{
-    id: 7,
-    name: "Fresh Eggs",
-    category: "Other",
-    price: 140,
-    unit: "dozen",
-    farmer: "Nur Islam",
-    description: "Farm fresh eggs.",
-    image: "🥚"
-},
+    {
+        id: 7,
+        name: "Fresh Eggs",
+        category: "Other",
+        price: 140,
+        unit: "dozen",
+        farmer: "Nur Islam",
+        description: "Farm fresh eggs.",
+        image: "🥚"
+    },
 
-{
-    id: 8,
-    name: "Pure Honey",
-    category: "Other",
-    price: 600,
-    unit: "kg",
-    farmer: "Jamal Hossain",
-    description: "Natural honey collected locally.",
-    image: "🍯"
-}
+    {
+        id: 8,
+        name: "Pure Honey",
+        category: "Other",
+        price: 600,
+        unit: "kg",
+        farmer: "Jamal Hossain",
+        description: "Natural honey collected locally.",
+        image: "🍯"
+    }
 
 ];
 
 function displayProducts(productList) {
 
-const productContainer =
-    document.getElementById("productContainer");
+    const productContainer =
+        document.getElementById("productContainer");
 
-const noProducts =
-    document.getElementById("noProducts");
+    const noProducts =
+        document.getElementById("noProducts");
 
-const productCount =
-    document.getElementById("productCount");
-
-
-// Stop if this is not the products page
-
-if (!productContainer) {
-    return;
-}
+    const productCount =
+        document.getElementById("productCount");
 
 
-// Clear previous products
+    // Stop if this is not the products page
 
-productContainer.innerHTML = "";
-
-
-// Show product count
-
-productCount.textContent =
-    `Showing ${productList.length} product(s)`;
+    if (!productContainer) {
+        return;
+    }
 
 
-// Show no products message
+    // Clear previous products
 
-if (productList.length === 0) {
-
-    noProducts.classList.remove("hidden");
-
-    return;
-}
+    productContainer.innerHTML = "";
 
 
-noProducts.classList.add("hidden");
+    // Show product count
+
+    productCount.textContent =
+        `Showing ${productList.length} product(s)`;
 
 
-// Create product cards
+    // Show no products message
 
-productList.forEach(product => {
+    if (productList.length === 0) {
 
-    const productCard =
-        document.createElement("article");
+        noProducts.classList.remove("hidden");
+
+        return;
+    }
 
 
-    productCard.classList.add("product-card");
+    noProducts.classList.add("hidden");
 
 
-    productCard.innerHTML = `
+    // Create product cards
+
+    productList.forEach(product => {
+
+        const productCard =
+            document.createElement("article");
+
+
+        productCard.classList.add("product-card");
+
+
+        productCard.innerHTML = `
 
         <div class="product-image">
 
@@ -204,58 +204,58 @@ productList.forEach(product => {
     `;
 
 
-    productContainer.appendChild(productCard);
+        productContainer.appendChild(productCard);
 
-});
+    });
 
 }
 
 function filterProducts() {
 
 
-const searchInput =
-    document.getElementById("searchInput");
+    const searchInput =
+        document.getElementById("searchInput");
 
-const categoryFilter =
-    document.getElementById("categoryFilter");
-
-
-// Stop if this is not products.html
-
-if (!searchInput || !categoryFilter) {
-    return;
-}
+    const categoryFilter =
+        document.getElementById("categoryFilter");
 
 
-const searchValue =
-    searchInput.value.toLowerCase();
+    // Stop if this is not products.html
+
+    if (!searchInput || !categoryFilter) {
+        return;
+    }
 
 
-const selectedCategory =
-    categoryFilter.value;
+    const searchValue =
+        searchInput.value.toLowerCase();
 
 
-const filteredProducts =
-    products.filter(product => {
-
-        const matchesSearch =
-            product.name
-                .toLowerCase()
-                .includes(searchValue);
+    const selectedCategory =
+        categoryFilter.value;
 
 
-        const matchesCategory =
-            selectedCategory === "all" ||
-            product.category === selectedCategory;
+    const filteredProducts =
+        products.filter(product => {
+
+            const matchesSearch =
+                product.name
+                    .toLowerCase()
+                    .includes(searchValue);
 
 
-        return matchesSearch &&
-            matchesCategory;
+            const matchesCategory =
+                selectedCategory === "all" ||
+                product.category === selectedCategory;
 
-    });
+
+            return matchesSearch &&
+                matchesCategory;
+
+        });
 
 
-displayProducts(filteredProducts);
+    displayProducts(filteredProducts);
 
 
 }
@@ -263,70 +263,70 @@ displayProducts(filteredProducts);
 
 
 document.addEventListener(
-"DOMContentLoaded",
-() => {
+    "DOMContentLoaded",
+    () => {
 
-    const productContainer =
-        document.getElementById("productContainer");
-
-
-    
-    if (!productContainer) {
-        return;
-    }
+        const productContainer =
+            document.getElementById("productContainer");
 
 
 
-
-    displayProducts(products);
-
-
-    const searchInput =
-        document.getElementById("searchInput");
-
-
-    const categoryFilter =
-        document.getElementById("categoryFilter");
+        if (!productContainer) {
+            return;
+        }
 
 
 
-    searchInput.addEventListener(
-        "input",
-        filterProducts
-    );
+
+        displayProducts(products);
+
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+
+        const categoryFilter =
+            document.getElementById("categoryFilter");
 
 
 
-    categoryFilter.addEventListener(
-        "change",
-        filterProducts
-    );
-
-
-
-    const urlParams =
-        new URLSearchParams(
-            window.location.search
+        searchInput.addEventListener(
+            "input",
+            filterProducts
         );
 
 
-    const category =
-        urlParams.get("category");
+
+        categoryFilter.addEventListener(
+            "change",
+            filterProducts
+        );
 
 
-    if (category) {
 
-        categoryFilter.value =
-            category;
+        const urlParams =
+            new URLSearchParams(
+                window.location.search
+            );
 
-        filterProducts();
+
+        const category =
+            urlParams.get("category");
+
+
+        if (category) {
+
+            categoryFilter.value =
+                category;
+
+            filterProducts();
+
+        }
 
     }
 
-}
-
 );
-function displayProductDetails() {
+async function displayProductDetails() {
 
     const productDetails =
         document.getElementById("productDetails");
@@ -339,7 +339,7 @@ function displayProductDetails() {
     }
 
 
-    
+
 
     const urlParams =
         new URLSearchParams(
@@ -353,15 +353,23 @@ function displayProductDetails() {
         );
 
 
-   
 
-    const product =
-        products.find(
-            product => product.id === productId
+    let product = null;
+
+    try {
+        const response = await fetch(
+            `http://localhost:3000/api/products/${productId}`
         );
 
+        if (response.ok) {
+            product = await response.json();
+        }
+    } catch (error) {
+        console.error("Failed to fetch product:", error);
+    }
 
-    
+
+
 
     if (!product) {
 
@@ -951,7 +959,7 @@ document.addEventListener(
 
         checkoutForm.addEventListener(
             "submit",
-            function(event) {
+            async function (event)  {
 
                 event.preventDefault();
 
@@ -1010,50 +1018,98 @@ document.addEventListener(
                         0
                     );
 
+                // Send order to backend
 
-                // Save order temporarily
+                try {
 
-                const order = {
+                    const response = await fetch(
+                        "http://localhost:3000/api/orders",
+                        {
+                            method: "POST",
 
-                    orderId:
-                        "ORD-" +
-                        Date.now(),
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
 
-                    customerName: name,
-
-                    phone: phone,
-
-                    address: address,
-
-                    city: city,
-
-                    paymentMethod: payment,
-
-                    items: cart,
-
-                    total: total,
-
-                    orderDate:
-                        new Date().toLocaleString()
-
-                };
+                            body: JSON.stringify({
+                                customerName: name,
+                                phone: phone,
+                                address: address,
+                                city: city,
+                                paymentMethod: payment,
+                                items: cart,
+                                total: total
+                            })
+                        }
+                    );
 
 
-                localStorage.setItem(
-                    "latestOrder",
-                    JSON.stringify(order)
-                );
+                    const result = await response.json();
 
 
-                // Clear cart after successful order
+                    if (!response.ok) {
 
-                localStorage.removeItem("cart");
+                        alert(
+                            result.message ||
+                            "Failed to place order."
+                        );
+
+                        return;
+                    }
 
 
-                // Go to confirmation page
+                    // Save order information for confirmation page
 
-                window.location.href =
-                    "order-confirmation.html";
+                    const order = {
+
+                        orderId: result.orderId,
+
+                        customerName: name,
+
+                        phone: phone,
+
+                        address: address,
+
+                        city: city,
+
+                        paymentMethod: payment,
+
+                        items: cart,
+
+                        total: total
+
+                    };
+
+
+                    localStorage.setItem(
+                        "latestOrder",
+                        JSON.stringify(order)
+                    );
+
+
+                    // Clear cart after successful order
+
+                    localStorage.removeItem("cart");
+
+
+                    // Go to confirmation page
+
+                    window.location.href =
+                        "order-confirmation.html";
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Order submission failed:",
+                        error
+                    );
+
+                    alert(
+                        "Could not connect to the backend."
+                    );
+
+                }
 
             }
         );
